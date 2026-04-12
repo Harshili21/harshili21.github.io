@@ -54,9 +54,7 @@ function initTypingEffect() {
         'Software Developer',
         'Machine Learning Engineer',
         'Full-Stack Developer',
-        'Web Developer',
-        'Problem Solver',
-        'Tech Innovator'
+        'Problem Solver'
     ];
     const typingEl = document.getElementById('typingText');
     if (!typingEl) return;
