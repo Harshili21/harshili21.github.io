@@ -52,7 +52,7 @@ function createParticles() {
 function initTypingEffect() {
     const titles = [
         'Software Developer',
-        'AI/ML Enthusiast',
+        'Machine Learning Engineer',
         'Full-Stack Developer',
         'Web Developer',
         'Problem Solver',
