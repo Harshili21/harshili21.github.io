@@ -623,6 +623,10 @@ ul {
     align-items: start;
 }
 
+.about-text, .about-image {
+    min-width: 0;
+}
+
 .about-text p {
     color: var(--text-secondary);
     margin-bottom: 16px;
