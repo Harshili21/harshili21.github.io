@@ -966,6 +966,103 @@ ul {
     transform: translateY(-2px);
 }
 
+/* ---------- Experience Section ---------- */
+.experience-timeline {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    padding-left: 40px;
+}
+
+.experience-timeline::before {
+    content: '';
+    position: absolute;
+    left: 12px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--purple-600), var(--purple-900), transparent);
+}
+
+.experience-role {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+}
+
+.experience-company {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.experience-company i {
+    color: var(--purple-400);
+}
+
+.experience-location {
+    color: var(--text-muted);
+    font-weight: 400;
+    font-size: 0.88rem;
+}
+
+.experience-list {
+    margin: 18px 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+.experience-list li {
+    position: relative;
+    padding-left: 24px;
+    margin-bottom: 12px;
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    line-height: 1.6;
+}
+
+.experience-list li::before {
+    content: '▹';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--purple-400);
+    font-size: 1.1rem;
+    line-height: 1.4;
+}
+
+.experience-list li strong {
+    color: var(--purple-300);
+}
+
+.experience-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.experience-tags span {
+    padding: 5px 14px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    background: rgba(139, 92, 246, 0.08);
+    color: var(--purple-300);
+    border: 1px solid rgba(139, 92, 246, 0.15);
+    transition: var(--transition-base);
+}
+
+.experience-tags span:hover {
+    background: rgba(139, 92, 246, 0.18);
+    border-color: var(--purple-400);
+}
+
 /* ---------- Education Section ---------- */
 .education-timeline {
     max-width: 800px;
@@ -1571,7 +1668,8 @@ ul {
         flex-direction: column;
     }
 
-    .education-timeline {
+    .education-timeline,
+    .experience-timeline {
         padding-left: 28px;
     }
 
@@ -1681,13 +1779,15 @@ body.light .contact-card:hover {
     box-shadow: 0 8px 40px rgba(109, 40, 217, 0.18);
 }
 
-body.light .skill-tag {
+body.light .skill-tag,
+body.light .experience-tags span {
     background: rgba(109, 40, 217, 0.08);
     color: #6d28d9;
     border-color: rgba(109, 40, 217, 0.2);
 }
 
-body.light .skill-tag:hover {
+body.light .skill-tag:hover,
+body.light .experience-tags span:hover {
     background: rgba(109, 40, 217, 0.16);
     border-color: var(--purple-400);
 }
