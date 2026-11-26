@@ -997,6 +997,35 @@ body.light .project-visual-meta {
     color: var(--purple-300);
 }
 
+.project-languages {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    margin-bottom: 14px;
+    padding: 8px 12px;
+    border-radius: 10px;
+    background: rgba(139, 92, 246, 0.06);
+    border: 1px solid rgba(139, 92, 246, 0.14);
+}
+
+.project-languages i {
+    color: var(--purple-400);
+    font-size: 0.82rem;
+}
+
+.project-languages strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+body.light .project-languages {
+    background: rgba(109, 40, 217, 0.06);
+    border-color: rgba(109, 40, 217, 0.16);
+}
+
 .project-tech {
     display: flex;
     flex-wrap: wrap;
@@ -1266,17 +1295,17 @@ body.light .project-visual-meta {
 .coursework-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 7px;
     margin-top: 8px;
 }
 
 .coursework-tags span {
-    padding: 5px 14px;
+    padding: 4px 12px;
     border-radius: 8px;
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     background: rgba(139, 92, 246, 0.06);
     color: var(--text-secondary);
-    border: 1px solid rgba(139, 92, 246, 0.1);
+    border: 1px solid rgba(139, 92, 246, 0.12);
 }
 
 .timeline-details p {
@@ -1297,6 +1326,7 @@ body.light .project-visual-meta {
 }
 
 .achievement-card {
+    position: relative;
     background: var(--bg-card);
     border: 1px solid var(--border-color);
     border-radius: 20px;
@@ -1304,6 +1334,45 @@ body.light .project-visual-meta {
     text-align: center;
     backdrop-filter: blur(10px);
     transition: var(--transition-base);
+}
+
+.achievement-featured {
+    border-color: rgba(168, 85, 247, 0.45);
+    box-shadow: 0 8px 30px rgba(139, 92, 246, 0.14);
+}
+
+.achievement-rank-badge {
+    position: absolute;
+    top: -13px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 14px;
+    border-radius: 50px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+    color: #ffffff;
+    background: var(--accent-gradient);
+    box-shadow: 0 4px 14px rgba(139, 92, 246, 0.4);
+}
+
+.achievement-rank-badge i {
+    color: #fde047;
+    font-size: 0.7rem;
+}
+
+.achievement-highlight {
+    display: inline-block;
+    padding: 1px 8px;
+    border-radius: 6px;
+    font-weight: 700;
+    color: #f3e8ff;
+    background: rgba(139, 92, 246, 0.25);
+    border: 1px solid rgba(168, 85, 247, 0.45);
 }
 
 .achievement-card:hover {
@@ -1868,10 +1937,22 @@ body.light .contact-card:hover {
 }
 
 body.light .skill-tag,
-body.light .experience-tags span {
+body.light .experience-tags span,
+body.light .coursework-tags span {
     background: rgba(109, 40, 217, 0.08);
     color: #6d28d9;
     border-color: rgba(109, 40, 217, 0.2);
+}
+
+body.light .achievement-featured {
+    border-color: rgba(109, 40, 217, 0.42);
+    box-shadow: 0 8px 28px rgba(109, 40, 217, 0.14);
+}
+
+body.light .achievement-highlight {
+    color: #5b21b6;
+    background: rgba(139, 92, 246, 0.14);
+    border-color: rgba(109, 40, 217, 0.35);
 }
 
 body.light .skill-tag:hover,

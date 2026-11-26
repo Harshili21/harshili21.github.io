@@ -270,6 +270,7 @@ function initImageFallbacks() {
                     'pixouraImg': '🎨',
                     'cropWeedImg': '🌾',
                     'trafficImg': '🚦',
+                    'salesDashboardImg': '📊',
                     'exoplanetImg': '🚀',
                     'autovestImg': '💰',
                     'airlineImg': '✈️',
