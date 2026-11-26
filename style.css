@@ -59,18 +59,21 @@
     box-sizing: border-box;
 }
 
-html, body {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
-}
-
 html {
+    background: var(--bg-primary);
     scroll-behavior: smooth;
     scroll-padding-top: 80px;
+    overscroll-behavior-y: none;
+}
+
+html:has(body.light) {
+    background: #f0eeff;
 }
 
 body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
     font-family: var(--font-body);
     background: var(--bg-primary);
     color: var(--text-primary);
@@ -391,7 +394,8 @@ ul {
     font-size: clamp(1.1rem, 2.5vw, 1.5rem);
     color: var(--text-secondary);
     margin-bottom: 20px;
-    min-height: 2em;
+    min-height: 2.2em;
+    white-space: nowrap;
 }
 
 .hero-title-dynamic {
@@ -1292,20 +1296,76 @@ body.light .project-languages {
     color: var(--text-muted);
 }
 
+.coursework-groups {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-top: 10px;
+}
+
+.coursework-group {
+    padding: 14px 16px;
+    border-radius: 14px;
+    background: rgba(139, 92, 246, 0.04);
+    border: 1px solid rgba(139, 92, 246, 0.12);
+    border-left: 3px solid var(--purple-400);
+}
+
+.coursework-group.group-ai {
+    border-left-color: #a855f7;
+}
+
+.coursework-group.group-core {
+    border-left-color: #38bdf8;
+}
+
+.coursework-group.group-web {
+    border-left-color: #34d399;
+}
+
+.coursework-group.group-pbl {
+    border-left-color: #f472b6;
+}
+
+.coursework-group-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+}
+
+.coursework-group.group-ai .coursework-group-title i { color: #c084fc; }
+.coursework-group.group-core .coursework-group-title i { color: #38bdf8; }
+.coursework-group.group-web .coursework-group-title i { color: #34d399; }
+.coursework-group.group-pbl .coursework-group-title i { color: #f472b6; }
+
 .coursework-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 7px;
-    margin-top: 8px;
+    gap: 6px;
 }
 
 .coursework-tags span {
-    padding: 4px 12px;
-    border-radius: 8px;
-    font-size: 0.78rem;
-    background: rgba(139, 92, 246, 0.06);
+    padding: 4px 11px;
+    border-radius: 7px;
+    font-size: 0.76rem;
+    background: rgba(255, 255, 255, 0.03);
     color: var(--text-secondary);
-    border: 1px solid rgba(139, 92, 246, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+body.light .coursework-group {
+    background: rgba(109, 40, 217, 0.04);
+    border-color: rgba(109, 40, 217, 0.14);
+}
+
+body.light .coursework-tags span {
+    background: rgba(255, 255, 255, 0.75);
+    border-color: rgba(109, 40, 217, 0.14);
 }
 
 .timeline-details p {
@@ -1336,43 +1396,9 @@ body.light .project-languages {
     transition: var(--transition-base);
 }
 
-.achievement-featured {
-    border-color: rgba(168, 85, 247, 0.45);
-    box-shadow: 0 8px 30px rgba(139, 92, 246, 0.14);
-}
-
-.achievement-rank-badge {
-    position: absolute;
-    top: -13px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 4px 14px;
-    border-radius: 50px;
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.3px;
-    white-space: nowrap;
-    color: #ffffff;
-    background: var(--accent-gradient);
-    box-shadow: 0 4px 14px rgba(139, 92, 246, 0.4);
-}
-
-.achievement-rank-badge i {
-    color: #fde047;
-    font-size: 0.7rem;
-}
-
-.achievement-highlight {
-    display: inline-block;
-    padding: 1px 8px;
-    border-radius: 6px;
-    font-weight: 700;
-    color: #f3e8ff;
-    background: rgba(139, 92, 246, 0.25);
-    border: 1px solid rgba(168, 85, 247, 0.45);
+.achievement-card p strong {
+    color: var(--purple-300);
+    font-weight: 600;
 }
 
 .achievement-card:hover {
@@ -1553,28 +1579,28 @@ body.light .project-languages {
 /* ---------- Animations ---------- */
 .animate-slide-up {
     opacity: 0;
-    transform: translateY(30px);
-    animation: slideUp 0.8s forwards;
+    transform: translateY(12px);
+    animation: slideUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 .delay-1 {
-    animation-delay: 0.15s;
+    animation-delay: 0.08s;
 }
 
 .delay-2 {
-    animation-delay: 0.3s;
+    animation-delay: 0.16s;
 }
 
 .delay-3 {
-    animation-delay: 0.45s;
+    animation-delay: 0.24s;
 }
 
 .delay-4 {
-    animation-delay: 0.6s;
+    animation-delay: 0.32s;
 }
 
 .delay-5 {
-    animation-delay: 0.75s;
+    animation-delay: 0.4s;
 }
 
 @keyframes slideUp {
@@ -1677,6 +1703,11 @@ body.light .project-languages {
 
     .scroll-indicator {
         display: none;
+    }
+
+    .hero-title-wrapper {
+        white-space: normal;
+        min-height: 3.4em;
     }
 
     .nav-links {
@@ -1782,6 +1813,8 @@ body.light .project-languages {
 
     .hero-title-wrapper {
         font-size: clamp(0.9rem, 4vw, 1.2rem);
+        white-space: normal;
+        min-height: 3.4em;
     }
 
     .hero-description {
