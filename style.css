@@ -225,7 +225,8 @@ ul {
     display: flex;
     align-items: center;
     gap: 8px;
-    margin-left: 170px;
+    margin-left: auto;
+    margin-right: 16px;
 }
 
 .nav-link {
@@ -1394,11 +1395,19 @@ body.light .coursework-tags span {
     text-align: center;
     backdrop-filter: blur(10px);
     transition: var(--transition-base);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .achievement-card p strong {
     color: var(--purple-300);
     font-weight: 600;
+}
+
+.achievement-card .cert-link {
+    margin-top: auto;
+    padding-top: 6px;
 }
 
 .achievement-card:hover {
@@ -1441,6 +1450,112 @@ body.light .coursework-tags span {
     color: var(--text-secondary);
     font-size: 0.85rem;
     line-height: 1.6;
+}
+
+/* ---------- Certifications Section ---------- */
+.certifications-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.cert-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 26px 24px;
+    backdrop-filter: blur(10px);
+    transition: var(--transition-base);
+}
+
+.cert-card:hover {
+    border-color: var(--purple-500);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-glow);
+    background: var(--bg-card-hover);
+}
+
+.cert-icon {
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    color: var(--purple-400);
+    background: rgba(139, 92, 246, 0.1);
+    border: 1px solid rgba(139, 92, 246, 0.22);
+    transition: var(--transition-base);
+}
+
+.cert-card:hover .cert-icon {
+    background: var(--accent-gradient);
+    color: white;
+    border-color: transparent;
+}
+
+.cert-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.cert-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 4px;
+}
+
+.cert-header h3 {
+    font-family: var(--font-heading);
+    font-size: 1.02rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.cert-date {
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--purple-400);
+    white-space: nowrap;
+}
+
+.cert-issuer {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--purple-300);
+    margin-bottom: 8px;
+}
+
+.cert-desc {
+    font-size: 0.84rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 14px;
+}
+
+.cert-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--purple-300);
+    margin-top: auto;
+    transition: var(--transition-base);
+}
+
+.cert-link:hover {
+    color: var(--purple-400);
+    transform: translateX(3px);
 }
 
 /* ---------- Contact Section ---------- */
@@ -1754,6 +1869,10 @@ body.light .coursework-tags span {
         grid-template-columns: 1fr;
     }
 
+    .certifications-grid {
+        grid-template-columns: 1fr;
+    }
+
     .contact-cards {
         grid-template-columns: 1fr;
     }
@@ -1847,6 +1966,10 @@ body.light .coursework-tags span {
     }
 
     .achievements-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .certifications-grid {
         grid-template-columns: 1fr;
     }
 
@@ -1951,6 +2074,7 @@ body.light .skill-category,
 body.light .project-card,
 body.light .timeline-content,
 body.light .achievement-card,
+body.light .cert-card,
 body.light .contact-card {
     background: rgba(255, 255, 255, 0.78);
     border-color: rgba(109, 40, 217, 0.14);
@@ -1963,6 +2087,7 @@ body.light .skill-category:hover,
 body.light .project-card:hover,
 body.light .timeline-content:hover,
 body.light .achievement-card:hover,
+body.light .cert-card:hover,
 body.light .contact-card:hover {
     background: rgba(255, 255, 255, 0.95);
     border-color: var(--purple-400);
@@ -1977,15 +2102,13 @@ body.light .coursework-tags span {
     border-color: rgba(109, 40, 217, 0.2);
 }
 
-body.light .achievement-featured {
-    border-color: rgba(109, 40, 217, 0.42);
-    box-shadow: 0 8px 28px rgba(109, 40, 217, 0.14);
+body.light .cert-issuer,
+body.light .cert-link {
+    color: #6d28d9;
 }
 
-body.light .achievement-highlight {
+body.light .cert-link:hover {
     color: #5b21b6;
-    background: rgba(139, 92, 246, 0.14);
-    border-color: rgba(109, 40, 217, 0.35);
 }
 
 body.light .skill-tag:hover,
