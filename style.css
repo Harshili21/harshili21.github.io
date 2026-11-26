@@ -840,6 +840,8 @@ ul {
     overflow: hidden;
     backdrop-filter: blur(10px);
     transition: var(--transition-base);
+    display: flex;
+    flex-direction: column;
 }
 
 .project-card.featured {
@@ -967,6 +969,9 @@ body.light .project-visual-meta {
 
 .project-info {
     padding: 28px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .project-title {
@@ -1011,7 +1016,9 @@ body.light .project-visual-meta {
 
 .project-links {
     display: flex;
+    flex-wrap: wrap;
     gap: 12px;
+    margin-top: auto;
 }
 
 .project-link {
@@ -1024,6 +1031,9 @@ body.light .project-visual-meta {
     font-weight: 500;
     border: 1px solid var(--border-color);
     color: var(--text-secondary);
+    background: transparent;
+    font-family: inherit;
+    cursor: pointer;
     transition: var(--transition-base);
 }
 
@@ -1891,4 +1901,154 @@ body.light .scroll-indicator a {
 
 body.light .mouse {
     border-color: var(--text-muted);
+}
+
+/* ---------- ML Code Preview Modal ---------- */
+.code-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(8, 8, 16, 0.78);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.code-modal.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.code-modal-dialog {
+    width: 100%;
+    max-width: 880px;
+    max-height: 85vh;
+    background: #121024;
+    border: 1px solid rgba(139, 92, 246, 0.35);
+    border-radius: 18px;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.55);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transform: translateY(16px) scale(0.98);
+    transition: transform 0.25s ease;
+}
+
+.code-modal.open .code-modal-dialog {
+    transform: translateY(0) scale(1);
+}
+
+.code-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: rgba(139, 92, 246, 0.1);
+    border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+    flex-wrap: wrap;
+}
+
+.code-modal-title-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+}
+
+.code-modal-dots {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.code-modal-filename {
+    font-family: 'Fira Code', 'Cascadia Code', monospace;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #e9d5ff;
+    word-break: break-all;
+}
+
+.code-modal-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.code-modal-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    background: rgba(139, 92, 246, 0.16);
+    color: #e9d5ff;
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    cursor: pointer;
+    font-family: inherit;
+    text-decoration: none;
+    transition: var(--transition-base);
+}
+
+.code-modal-btn:hover {
+    background: rgba(139, 92, 246, 0.3);
+    border-color: #a78bfa;
+}
+
+.code-modal-btn.close-btn {
+    padding: 6px 10px;
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.15);
+    color: #cbd5e1;
+}
+
+.code-modal-btn.close-btn:hover {
+    background: rgba(239, 68, 68, 0.22);
+    border-color: rgba(239, 68, 68, 0.5);
+    color: #fecaca;
+}
+
+.code-modal-meta {
+    padding: 8px 20px;
+    font-size: 0.82rem;
+    color: #a5b4fc;
+    background: rgba(15, 13, 30, 0.8);
+    border-bottom: 1px solid rgba(139, 92, 246, 0.12);
+}
+
+.code-modal-body {
+    margin: 0;
+    padding: 20px 24px;
+    overflow: auto;
+    font-family: 'Fira Code', 'Cascadia Code', monospace;
+    font-size: 0.84rem;
+    line-height: 1.65;
+    color: #e2e8f0;
+    background: #0d0b1a;
+    tab-size: 4;
+}
+
+.code-modal-body .py-comment {
+    color: #6b7280;
+    font-style: italic;
+}
+
+.code-modal-body .py-keyword {
+    color: #c084fc;
+}
+
+.code-modal-body .py-string {
+    color: #86efac;
+}
+
+.code-modal-body .py-number {
+    color: #fbbf24;
 }

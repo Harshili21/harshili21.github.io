@@ -26,6 +26,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preload" as="image" href="assets/profile.webp" fetchpriority="high">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -99,7 +100,7 @@
                 <div class="hero-image-border">
                     <div class="hero-image-container">
                         <!-- REPLACE: Add your profile photo as assets/profile.jpg or profile.png -->
-                        <img src="assets/profile.jpg" alt="Harshili Patni" class="hero-image" id="profileImage">
+                        <img src="assets/profile.webp" alt="Harshili Patni" class="hero-image" id="profileImage" width="647" height="680" fetchpriority="high" decoding="async">
                     </div>
                 </div>
                 <div class="hero-image-glow"></div>
@@ -143,7 +144,7 @@
                             <span class="stat-label">CGPA</span>
                         </div>
                         <div class="stat-card">
-                            <span class="stat-number" data-target="8">0</span>
+                            <span class="stat-number" data-target="12">0</span>
                             <span class="stat-label">Projects</span>
                         </div>
                         <div class="stat-card">
@@ -321,7 +322,7 @@
                 <!-- Project 1: MailPilot -->
                 <div class="project-card featured" data-aos="fade-up" data-aos-delay="100">
                     <div class="project-image">
-                        <img src="assets/project-mailpilot.jpg" alt="MailPilot — AI Email Monitoring &amp; Task Automation Agent" id="mailpilotImg">
+                        <img src="assets/project-mailpilot.webp" alt="MailPilot — AI Email Monitoring &amp; Task Automation Agent" id="mailpilotImg" width="800" height="388" loading="lazy" decoding="async">
                         <div class="project-image-overlay">
                             <span class="project-badge">🤖 AI Automation &bull; July 2026</span>
                         </div>
@@ -329,16 +330,17 @@
                     <div class="project-info">
                         <h3 class="project-title">MailPilot — AI Email Monitoring &amp; Task Automation Agent</h3>
                         <p class="project-description">
-                            Engineered AI-driven triage for shared inboxes using sentiment and intent analysis for 
-                            automatic department routing. Automated ClickUp task creation via IMAP and API integration, 
-                            paired with a real-time SLA monitoring dashboard.
+                            Production-ready shared-inbox automation platform built with TypeScript, Python, Prisma/LibSQL, 
+                            and OpenAI NLP. Retrieves incoming emails via Microsoft 365 / IMAP, performs automated sentiment, 
+                            intent, and urgency classification for department routing, syncs ClickUp tasks automatically, 
+                            and provides real-time SLA compliance visibility on a centralized dashboard.
                         </p>
                         <div class="project-tech">
-                            <span>AI / NLP</span>
-                            <span>Sentiment &amp; Intent Analysis</span>
-                            <span>IMAP</span>
-                            <span>ClickUp API</span>
-                            <span>SLA Dashboard</span>
+                            <span>TypeScript</span>
+                            <span>Python</span>
+                            <span>OpenAI NLP</span>
+                            <span>IMAP &amp; ClickUp API</span>
+                            <span>Prisma / LibSQL</span>
                         </div>
                         <div class="project-links">
                             <a href="https://github.com/Harshili21/AI-Email-Monitoring-Task-Automation-Agent" target="_blank" rel="noopener" class="project-link">
@@ -354,7 +356,7 @@
                 <!-- Project 2: Pixoura -->
                 <div class="project-card featured" data-aos="fade-up" data-aos-delay="200">
                     <div class="project-image">
-                        <img src="assets/project-pixoura.jpg" alt="Pixoura — Swipe-Based Video Commerce MVP" id="pixouraImg">
+                        <img src="assets/project-pixoura.webp" alt="Pixoura — Swipe-Based Video Commerce MVP" id="pixouraImg" width="800" height="359" loading="lazy" decoding="async">
                         <div class="project-image-overlay">
                             <span class="project-badge">🎨 Designathon Top 5 &bull; Feb 2026</span>
                         </div>
@@ -362,9 +364,10 @@
                     <div class="project-info">
                         <h3 class="project-title">Pixoura — Swipe-Based Video Commerce MVP</h3>
                         <p class="project-description">
-                            Designed a mobile-first &ldquo;Watch, Feel, Buy&rdquo; experience with swipe-based product discovery. 
-                            Focused UX on reducing decision fatigue through simple, scalable personalization — placed 
-                            in the <strong>Top 5 of 50 teams</strong> at Designathon 2026 (ITM SLS Baroda University).
+                            Mobile-first &ldquo;Watch, Feel, Buy&rdquo; video commerce experience crafted for Designathon 2026 at 
+                            ITM SLS Baroda University, placing in the <strong>Top 5 of 50 teams</strong>. Designed an intuitive 
+                            swipe-left/skip and swipe-right/add-to-cart discovery flow alongside buyer/seller onboarding, 
+                            product search, and streamlined checkout to cut decision fatigue via simple personalization.
                         </p>
                         <div class="project-tech">
                             <span>Figma</span>
@@ -384,7 +387,7 @@
                 <div class="project-card featured" data-aos="fade-up" data-aos-delay="300">
                     <div class="project-image">
                         <!-- REPLACE: Add your project screenshot as assets/project-autovest.jpg -->
-                        <img src="assets/project-autovest.jpg" alt="AutoVest" id="autovestImg">
+                        <img src="assets/project-autovest.webp" alt="AutoVest" id="autovestImg" width="800" height="359" loading="lazy" decoding="async">
                         <div class="project-image-overlay">
                             <span class="project-badge">💰 AI Finance &bull; Dec 2025</span>
                         </div>
@@ -392,15 +395,16 @@
                     <div class="project-info">
                         <h3 class="project-title">AutoVest — AI-Powered Micro-Investment Assistant</h3>
                         <p class="project-description">
-                            Developed a full-stack app featuring an AI-powered Financial Health Score (0–100) and 
-                            subscription leak detection. Implemented adaptive investing logic and automatic round-up 
-                            micro-investments from everyday transactions.
+                            Full-stack personal finance and micro-investing web application built with React, TypeScript, and Vite. 
+                            Calculates an AI-powered Financial Health Score (0–100), flags recurring subscription leaks, 
+                            recommends allocations through an adaptive investment engine, and automates spare-change 
+                            investing via everyday transaction round-ups.
                         </p>
                         <div class="project-tech">
+                            <span>React</span>
                             <span>TypeScript</span>
                             <span>AI/ML</span>
-                            <span>Full Stack</span>
-                            <span>Finance</span>
+                            <span>FinTech</span>
                         </div>
                         <div class="project-links">
                             <a href="https://github.com/Harshili21/AutoVest" target="_blank" rel="noopener" class="project-link">
@@ -417,7 +421,7 @@
                 <div class="project-card featured" data-aos="fade-up" data-aos-delay="400">
                     <div class="project-image">
                         <!-- REPLACE: Add your project screenshot as assets/project-exoplanet.jpg -->
-                        <img src="assets/project-exoplanet.jpg" alt="Automated Exoplanet Hunter" id="exoplanetImg">
+                        <img src="assets/project-exoplanet.webp" alt="Automated Exoplanet Hunter" id="exoplanetImg" width="800" height="387" loading="lazy" decoding="async">
                         <div class="project-image-overlay">
                             <span class="project-badge">🏆 NASA Space Apps 2025 &bull; Oct 2025</span>
                         </div>
@@ -425,9 +429,10 @@
                     <div class="project-info">
                         <h3 class="project-title">Automated Exoplanet Hunter</h3>
                         <p class="project-description">
-                            Built a FastAPI + React/TypeScript application to classify exoplanets using NASA Kepler/TESS datasets.
-                            Achieved <strong>99.9% recall</strong> with Gradient Boosting; added batch CSV processing, 
-                            contamination flagging, and confidence scoring.
+                            Interpretable AI vetting application built for NASA Space Apps Challenge 2025 using FastAPI, 
+                            Python, React, and TypeScript on NASA Kepler and TESS mission datasets. Achieved <strong>99.9% recall</strong> 
+                            with a CPU-efficient Gradient Boosting Classifier, supporting real-time batch CSV processing, 
+                            contamination flagging, and confidence scoring — cutting vetting time from weeks to milliseconds.
                         </p>
                         <div class="project-tech">
                             <span>FastAPI</span>
@@ -447,20 +452,173 @@
                     </div>
                 </div>
 
-                <!-- Project 5: Airline Reserve -->
+                <!-- Project 5: Crop & Weed Detection (YOLOv8) -->
+                <div class="project-card featured" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-image">
+                        <img src="assets/project-crop-weed.webp" alt="Crop and Weed Detection using YOLOv8" id="cropWeedImg" width="800" height="400" loading="lazy" decoding="async">
+                        <div class="project-image-overlay">
+                            <span class="project-badge">🌾 Computer Vision &bull; YOLOv8n</span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Crop &amp; Weed Detection (Precision Agriculture)</h3>
+                        <p class="project-description">
+                            Computer vision object detection pipeline developed during my Machine Learning internship at UCT 
+                            to enable targeted herbicide spraying in sesame cultivation. Expanded 546 raw samples to 
+                            <strong>1,300 augmented bounding-box images</strong> and fine-tuned a custom <strong>YOLOv8 Nano (YOLOv8n)</strong> 
+                            detector (512&times;512 resolution, 50 epochs) for fast, edge-ready crop vs. weed differentiation.
+                        </p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>YOLOv8</span>
+                            <span>Computer Vision</span>
+                            <span>PyTorch</span>
+                            <span>Data Augmentation</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Harshili21/ml-crop-detection-and-traffic-forecasting/tree/main/Project5_Ag_Crop%20and%20weed%20detection/Project5_Ag_Crop%20and%20weed%20detection" target="_blank" rel="noopener" class="project-link">
+                                <i class="fab fa-github"></i> GitHub Code
+                            </a>
+                            <button type="button" class="project-link live code-preview-btn" data-code-id="crop-weed">
+                                <i class="fas fa-code"></i> Preview Code
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6: Smart City Traffic Forecasting (XGBoost) -->
+                <div class="project-card featured" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-image">
+                        <img src="assets/project-traffic-forecast.webp" alt="Smart City Traffic Pattern Forecasting with XGBoost" id="trafficImg" width="900" height="450" loading="lazy" decoding="async">
+                        <div class="project-image-overlay">
+                            <span class="project-badge">🚦 Time-Series ML &bull; R&sup2; 0.896</span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Smart City Traffic Pattern Forecasting</h3>
+                        <p class="project-description">
+                            Time-series machine learning pipeline forecasting hourly vehicle volumes across four urban city 
+                            junctions from <strong>48,120 historical records</strong>. Modeled commute peaks, seasonalities, 
+                            and holiday patterns with a tuned <strong>XGBoost Regressor</strong> validated under a strict temporal split, 
+                            achieving <strong>R&sup2; = 0.8961</strong>, RMSE = 8.60, and MAE = 5.86.
+                        </p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>XGBoost</span>
+                            <span>Time-Series ML</span>
+                            <span>Pandas</span>
+                            <span>Scikit-learn</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Harshili21/ml-crop-detection-and-traffic-forecasting/tree/main/Project9_smart-city-traffic-patterns/Project9_smart-city-traffic-patterns" target="_blank" rel="noopener" class="project-link">
+                                <i class="fab fa-github"></i> GitHub Code
+                            </a>
+                            <button type="button" class="project-link live code-preview-btn" data-code-id="traffic-forecast">
+                                <i class="fas fa-code"></i> Preview Code
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 7: FoundIt CV Memory System -->
+                <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="project-image">
+                        <div class="project-visual">
+                            <div class="project-visual-inner">
+                                <div class="project-visual-icon">
+                                    <i class="fas fa-eye"></i>
+                                </div>
+                                <div class="project-visual-title">FoundIt CV System</div>
+                                <div class="project-visual-meta">YOLOv8 + OpenCV &bull; Object Memory</div>
+                            </div>
+                        </div>
+                        <div class="project-image-overlay">
+                            <span class="project-badge">👁️ Computer Vision &bull; OpenCV</span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">FoundIt — Misplaced Item Detection &amp; Memory System</h3>
+                        <p class="project-description">
+                            Real-time computer vision assistant built with Python, OpenCV, Ultralytics YOLOv8, and Pandas 
+                            to help locate misplaced everyday items (remote, keys, glasses). Continuously logs detected objects 
+                            with confidence scores, room location tags, and timestamps to structured CSV memory, enabling instant 
+                            historical queries to trace where an item was last seen.
+                        </p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>YOLOv8</span>
+                            <span>OpenCV</span>
+                            <span>Pandas</span>
+                            <span>Computer Vision</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Harshili21/Project_Timerush-cv_project/tree/main/New%20folder/cv_project/cv_project" target="_blank" rel="noopener" class="project-link">
+                                <i class="fab fa-github"></i> GitHub Code
+                            </a>
+                            <button type="button" class="project-link live code-preview-btn" data-code-id="foundit-cv">
+                                <i class="fas fa-code"></i> Preview Code
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 8: Sales & Revenue Analysis Dashboard -->
+                <div class="project-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="project-image">
+                        <div class="project-visual">
+                            <div class="project-visual-inner">
+                                <div class="project-visual-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div class="project-visual-title">Sales &amp; Revenue Analytics</div>
+                                <div class="project-visual-meta">SQL Console &bull; CSV/XLSX &bull; AI Insights</div>
+                            </div>
+                        </div>
+                        <div class="project-image-overlay">
+                            <span class="project-badge">📊 Data Analytics &bull; Live Demo</span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Sales &amp; Revenue Analysis Dashboard</h3>
+                        <p class="project-description">
+                            Interactive business intelligence dashboard built with JavaScript and ApexCharts across B2B SaaS, 
+                            B2C E-Commerce, and wholesale datasets. Includes an in-browser SQL query console simulator, 
+                            drag-and-drop CSV/XLSX import, dynamic KPI variance tracking, AI-generated revenue and margin 
+                            insights, multi-dimensional slicers, and CSV ledger export.
+                        </p>
+                        <div class="project-tech">
+                            <span>JavaScript</span>
+                            <span>ApexCharts</span>
+                            <span>SQL Simulator</span>
+                            <span>Data Analytics</span>
+                            <span>CSV / XLSX</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Harshili21/sales-revenue-analysis-dashboard" target="_blank" rel="noopener" class="project-link">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="https://sales-revenue-analysis-dashboard-zeta.vercel.app/" target="_blank" rel="noopener" class="project-link live">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 9: Airline Reserve -->
                 <div class="project-card" data-aos="fade-up" data-aos-delay="500">
                     <div class="project-image">
                         <!-- REPLACE: Add your project screenshot as assets/project-airline.jpg -->
-                        <img src="assets/project-airline.jpg" alt="Airline Reservation System" id="airlineImg">
+                        <img src="assets/project-airline.webp" alt="Airline Reservation System" id="airlineImg" width="800" height="364" loading="lazy" decoding="async">
                         <div class="project-image-overlay">
-                            <span class="project-badge">✈️ Web App</span>
+                            <span class="project-badge">✈️ Full-Stack Web App</span>
                         </div>
                     </div>
                     <div class="project-info">
                         <h3 class="project-title">Airline Reservation System</h3>
                         <p class="project-description">
-                            A responsive web application for booking and managing flights. Built with HTML, Bootstrap, 
-                            jQuery, PHP &amp; MySQL. Features flight search, bookings, and reservation management.
+                            Responsive flight booking and reservation management web application built with HTML, Bootstrap, 
+                            jQuery, PHP, and MySQL. Supports multi-page flight search, interactive seat-map selection, 
+                            end-to-end ticket booking workflows, payment confirmation states, and a reservation management portal.
                         </p>
                         <div class="project-tech">
                             <span>HTML</span>
@@ -473,18 +631,18 @@
                             <a href="https://github.com/Harshili21/AirlineReserve" target="_blank" rel="noopener" class="project-link">
                                 <i class="fab fa-github"></i> Code
                             </a>
-                            <a href="https://vercel.com/harshili21s-projects/airline-reserve" target="_blank" rel="noopener" class="project-link live">
+                            <a href="https://airline-reserve.vercel.app" target="_blank" rel="noopener" class="project-link live">
                                 <i class="fas fa-external-link-alt"></i> Live Demo
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Project 6: Food Delivery -->
+                <!-- Project 10: Food Delivery -->
                 <div class="project-card" data-aos="fade-up" data-aos-delay="600">
                     <div class="project-image">
                         <!-- REPLACE: Add your project screenshot as assets/project-food.jpg -->
-                        <img src="assets/project-food.jpg" alt="Food Delivery App" id="foodImg">
+                        <img src="assets/project-food.webp" alt="Food Delivery App" id="foodImg" width="800" height="361" loading="lazy" decoding="async">
                         <div class="project-image-overlay">
                             <span class="project-badge">🍕 Food Tech</span>
                         </div>
@@ -492,8 +650,9 @@
                     <div class="project-info">
                         <h3 class="project-title">Food Delivery App</h3>
                         <p class="project-description">
-                            A food delivery web application with an intuitive user interface for browsing menus, 
-                            placing orders, and tracking deliveries seamlessly.
+                            Responsive online food ordering and delivery web application built with HTML, CSS, and JavaScript. 
+                            Features a clean, intuitive interface for browsing restaurant menus, customizing dish orders, 
+                            managing cart items, and tracking delivery progress seamlessly across desktop and mobile.
                         </p>
                         <div class="project-tech">
                             <span>HTML</span>
@@ -511,40 +670,44 @@
                     </div>
                 </div>
 
-                <!-- Project 7: Visa Website -->
+                <!-- Project 11: Visa Website -->
                 <div class="project-card" data-aos="fade-up" data-aos-delay="700">
                     <div class="project-image">
                         <!-- REPLACE: Add your project screenshot as assets/project-visa.jpg -->
-                        <img src="assets/project-visa.jpg" alt="Visa Website" id="visaImg">
+                        <img src="assets/project-visa.webp" alt="Visa Website" id="visaImg" width="640" height="640" loading="lazy" decoding="async">
                         <div class="project-image-overlay">
                             <span class="project-badge">🌐 React + Node</span>
                         </div>
                     </div>
                     <div class="project-info">
-                        <h3 class="project-title">Visa Website</h3>
+                        <h3 class="project-title">Visa Consultancy Web Platform</h3>
                         <p class="project-description">
-                            A full-stack visa services website built with React and Node.js, providing 
-                            a modern and responsive interface for visa-related services.
+                            Full-stack visa and immigration services platform built with React, Node.js, SCSS, and CSS. 
+                            Provides dedicated country guides, visa service catalogs, consultation inquiry workflows, 
+                            and a responsive multi-page client portal backed by a custom Node.js server.
                         </p>
                         <div class="project-tech">
                             <span>React</span>
                             <span>Node.js</span>
-                            <span>HTML</span>
-                            <span>CSS</span>
+                            <span>SCSS</span>
+                            <span>HTML / CSS</span>
                         </div>
                         <div class="project-links">
                             <a href="https://github.com/Harshili21/VisaWebsite_ReactNode" target="_blank" rel="noopener" class="project-link">
                                 <i class="fab fa-github"></i> Code
                             </a>
+                            <a href="https://visa-website-react-node.vercel.app" target="_blank" rel="noopener" class="project-link live">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Project 8: Travel & Hotel Booking -->
+                <!-- Project 12: Travel & Hotel Booking -->
                 <div class="project-card" data-aos="fade-up" data-aos-delay="800">
                     <div class="project-image">
                         <!-- REPLACE: Add your project screenshot as assets/project-hotel.jpg -->
-                        <img src="assets/project-hotel.jpg" alt="Travel & Hotel Booking" id="hotelImg">
+                        <img src="assets/project-hotel.webp" alt="Travel & Hotel Booking" id="hotelImg" width="800" height="452" loading="lazy" decoding="async">
                         <div class="project-image-overlay">
                             <span class="project-badge">🏨 Web App</span>
                         </div>
@@ -552,8 +715,9 @@
                     <div class="project-info">
                         <h3 class="project-title">Travel &amp; Hotel Booking Platform</h3>
                         <p class="project-description">
-                            A front-end web application for exploring travel destinations and booking hotels. 
-                            Features a beautiful interface for destination discovery and personalized travel experiences.
+                            Responsive front-end web application for exploring travel destinations, comparing stays, and 
+                            booking hotels. Crafted with HTML, CSS, and JavaScript, featuring curated destination discovery 
+                            cards, interactive booking sections, and a clean, user-friendly travel planning interface.
                         </p>
                         <div class="project-tech">
                             <span>HTML</span>
@@ -748,6 +912,35 @@
             </div>
         </div>
     </footer>
+
+    <!-- ML Code Preview Modal -->
+    <div id="codeModal" class="code-modal" role="dialog" aria-modal="true" aria-labelledby="codeModalFilename" aria-hidden="true">
+        <div class="code-modal-dialog">
+            <div class="code-modal-header">
+                <div class="code-modal-title-group">
+                    <div class="code-modal-dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <span id="codeModalFilename" class="code-modal-filename">script.py</span>
+                </div>
+                <div class="code-modal-actions">
+                    <button type="button" id="codeModalCopy" class="code-modal-btn">
+                        <i class="fas fa-copy"></i> <span>Copy</span>
+                    </button>
+                    <a id="codeModalGithub" href="#" target="_blank" rel="noopener" class="code-modal-btn">
+                        <i class="fab fa-github"></i> <span>Open File</span>
+                    </a>
+                    <button type="button" id="codeModalClose" class="code-modal-btn close-btn" aria-label="Close code modal">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div id="codeModalMeta" class="code-modal-meta"></div>
+            <pre class="code-modal-body"><code id="codeModalContent"></code></pre>
+        </div>
+    </div>
 
     <!-- Back to Top -->
     <a href="#hero" id="backToTop" class="back-to-top" aria-label="Back to top">
