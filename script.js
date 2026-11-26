@@ -51,10 +51,10 @@ function createParticles() {
 /* ---- Typing Effect ---- */
 function initTypingEffect() {
     const titles = [
-        'Software Developer',
-        'Machine Learning Engineer',
         'Full-Stack Developer',
-        'Problem Solver'
+        'AI Automation Engineer',
+        'Machine Learning Engineer',
+        'Software Developer'
     ];
     const typingEl = document.getElementById('typingText');
     if (!typingEl) return;
@@ -263,6 +263,8 @@ function initImageFallbacks() {
             } else {
                 // Project image placeholder
                 const icons = {
+                    'mailpilotImg': '🤖',
+                    'pixouraImg': '🎨',
                     'exoplanetImg': '🚀',
                     'autovestImg': '💰',
                     'airlineImg': '✈️',
