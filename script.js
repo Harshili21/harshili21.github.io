@@ -22,6 +22,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // ---------- Back to Top ----------
     initBackToTop();
 
+    // ---------- Encrypted Images & Protection ----------
+    initEncryptedImages();
+    initImageProtection();
+
     // ---------- Image Fallbacks ----------
     initImageFallbacks();
 
@@ -30,6 +34,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ---------- ML Code Preview Modal ----------
     initCodeModal();
+
+    // ---------- Certifications Toggle ----------
+    initCertificationsToggle();
 });
 
 /* ---- Particles ---- */
@@ -241,6 +248,106 @@ function initBackToTop() {
     });
 }
 
+/* ---- Encrypted Images (RC4-drop256 + 16-byte nonce) ---- */
+const IMG_ENC_KEY = new Uint8Array([
+    0x48, 0x70, 0x21, 0x9A, 0x5E, 0xC3, 0x17, 0x8B,
+    0x64, 0xF1, 0x39, 0xA2, 0x7D, 0x0E, 0xB5, 0x4C,
+    0x93, 0x28, 0xD6, 0x51, 0xE4, 0x6F, 0x1A, 0x80
+]);
+
+function decryptImageBytes(buffer) {
+    const raw = new Uint8Array(buffer);
+    if (raw.length <= 16) throw new Error('Invalid encrypted image');
+    const nonce = raw.subarray(0, 16);
+    const cipher = raw.subarray(16);
+
+    const key = new Uint8Array(IMG_ENC_KEY.length + nonce.length);
+    key.set(IMG_ENC_KEY, 0);
+    key.set(nonce, IMG_ENC_KEY.length);
+
+    const s = new Uint8Array(256);
+    for (let i = 0; i < 256; i++) s[i] = i;
+    let j = 0;
+    for (let i = 0; i < 256; i++) {
+        j = (j + s[i] + key[i % key.length]) & 0xFF;
+        const tmp = s[i]; s[i] = s[j]; s[j] = tmp;
+    }
+
+    let i = 0;
+    j = 0;
+    for (let d = 0; d < 256; d++) {
+        i = (i + 1) & 0xFF;
+        j = (j + s[i]) & 0xFF;
+        const tmp = s[i]; s[i] = s[j]; s[j] = tmp;
+    }
+
+    const plain = new Uint8Array(cipher.length);
+    for (let k = 0; k < cipher.length; k++) {
+        i = (i + 1) & 0xFF;
+        j = (j + s[i]) & 0xFF;
+        const tmp = s[i]; s[i] = s[j]; s[j] = tmp;
+        plain[k] = cipher[k] ^ s[(s[i] + s[j]) & 0xFF];
+    }
+    return plain;
+}
+
+async function loadEncryptedImage(img) {
+    const encSrc = img.dataset.encSrc;
+    if (!encSrc || img.dataset.encLoaded) return;
+    img.dataset.encLoaded = '1';
+    try {
+        const res = await fetch(encSrc);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const buf = await res.arrayBuffer();
+        const plain = decryptImageBytes(buf);
+        const blobUrl = URL.createObjectURL(new Blob([plain], { type: 'image/webp' }));
+        img.addEventListener('load', () => URL.revokeObjectURL(blobUrl), { once: true });
+        img.src = blobUrl;
+    } catch {
+        img.dispatchEvent(new Event('error'));
+    }
+}
+
+function initEncryptedImages() {
+    const encImages = document.querySelectorAll('img[data-enc-src]');
+    if (!encImages.length) return;
+
+    const lazyTargets = [];
+    encImages.forEach(img => {
+        img.setAttribute('draggable', 'false');
+        if (img.id === 'profileImage' || !('IntersectionObserver' in window)) {
+            loadEncryptedImage(img);
+        } else {
+            lazyTargets.push(img);
+        }
+    });
+
+    if (lazyTargets.length) {
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    obs.unobserve(entry.target);
+                    loadEncryptedImage(entry.target);
+                }
+            });
+        }, { rootMargin: '300px 0px' });
+        lazyTargets.forEach(img => observer.observe(img));
+    }
+}
+
+function initImageProtection() {
+    document.addEventListener('contextmenu', e => {
+        if (e.target.closest('img, .hero-image-container, .project-image')) {
+            e.preventDefault();
+        }
+    });
+    document.addEventListener('dragstart', e => {
+        if (e.target.tagName === 'IMG' || e.target.closest('.hero-image-container, .project-image')) {
+            e.preventDefault();
+        }
+    });
+}
+
 /* ---- Image Fallbacks ---- */
 function initImageFallbacks() {
     const images = document.querySelectorAll('img');
@@ -440,4 +547,24 @@ function initCodeModal() {
             }
         });
     }
+}
+
+/* ---- Certifications Show More / Less ---- */
+function initCertificationsToggle() {
+    const grid = document.getElementById('certificationsGrid');
+    const toggleBtn = document.getElementById('certificationsToggle');
+    if (!grid || !toggleBtn) return;
+
+    const extraCount = grid.querySelectorAll('.cert-extra').length;
+    const label = toggleBtn.querySelector('span');
+
+    toggleBtn.addEventListener('click', () => {
+        const isExpanded = grid.classList.toggle('show-all');
+        toggleBtn.setAttribute('aria-expanded', String(isExpanded));
+        if (label) {
+            label.textContent = isExpanded
+                ? 'Show Less Certifications'
+                : `Show More Certifications (+${extraCount})`;
+        }
+    });
 }

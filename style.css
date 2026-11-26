@@ -541,6 +541,15 @@ ul {
     height: 100%;
     object-fit: cover;
     border-radius: 50%;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+}
+
+.project-image img {
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
 }
 
 .hero-image-glow {
@@ -1556,6 +1565,90 @@ body.light .coursework-tags span {
 .cert-link:hover {
     color: var(--purple-400);
     transform: translateX(3px);
+}
+
+.achievement-cert-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+}
+
+.achievement-cert-links .cert-link {
+    margin-top: 0;
+}
+
+.certifications-grid:not(.show-all) .cert-extra {
+    display: none;
+}
+
+.certifications-grid.show-all .cert-extra {
+    animation: certReveal 0.35s ease forwards;
+}
+
+@keyframes certReveal {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.certifications-toggle-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 32px;
+}
+
+.certifications-toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-card);
+    color: var(--purple-300);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    transition: var(--transition-base);
+}
+
+.certifications-toggle-btn:hover {
+    border-color: var(--purple-500);
+    color: var(--text-primary);
+    background: rgba(139, 92, 246, 0.14);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-glow);
+}
+
+.certifications-toggle-btn i {
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+.certifications-toggle-btn[aria-expanded="true"] i {
+    transform: rotate(180deg);
+}
+
+body.light .certifications-toggle-btn {
+    background: rgba(255, 255, 255, 0.85);
+    color: #6d28d9;
+    border-color: rgba(109, 40, 217, 0.22);
+}
+
+body.light .certifications-toggle-btn:hover {
+    background: rgba(109, 40, 217, 0.1);
+    color: #5b21b6;
+    border-color: var(--purple-400);
 }
 
 /* ---------- Contact Section ---------- */
